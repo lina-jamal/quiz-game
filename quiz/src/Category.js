@@ -6,21 +6,27 @@ function Category () {
   const[diff,setDiff]=useState('');
   const [questions,setQuestions]=useState([]);
   useEffect(()=>{
+
+    if(cat||diff){
     fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&difficulty=${diff}`)
     .then(res => res.json()).then(({results})=>setQuestions(results))
-  })
+    .catch(error => console.error(error))}
+    else{
+      setQuestions([]);
+    }
+  },[cat,diff])
 
   return(
     <>
     <form className='form-container'>
-
+    
      <label htmlFor='category'>Select category: </label>
-     <select name = {cat} onChange={(e)=> setCat(e.target.value)}>
+     <select id ='category' name = {cat} onChange={(e)=> setCat(e.target.value)}>
      {CategoryData.map((cat) => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
      </select>
 
      <label htmlFor = 'difficulty'> select difficulty</label>
-     <select name = {diff}  onChange={(e)=> setDiff(e.target.value)}> 
+     <select id = 'difficulty' name = {diff}  onChange={(e)=> setDiff(e.target.value)}> 
      {DifficultyData.map((dif,index)=><option key ={index} value ={dif} >{dif}</option>)}
      </select>
   
