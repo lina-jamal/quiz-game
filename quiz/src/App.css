@@ -28,11 +28,49 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.answers{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  margin: 10px auto;
 }
+
+.inputcontainer {
+  padding: 3px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 22px;
+  margin: 5px;
+  cursor: pointer;
+  display:inline-block
+}
+
+.inputcontainer:hover{
+background: yellow;
+color: red;
+border: none;
+}
+.inputcontainer:focus{
+  background: red;
+}
+/* input[type="checkbox"] {
+  background-color: black;
+}
+
+input:checked + span {
+  text-decoration: line-through;
+} */
+
+/* .myinput:checked + label  {
+  background: #2196F3;
+} */
+input:checked + label {
+  background-color: red;
+}
+
+.inputcontainer input {
+  position: absolute;
+  /* opacity: 0; */
+} 
+
+
