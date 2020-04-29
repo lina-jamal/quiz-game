@@ -5,6 +5,7 @@ function Category () {
   const[cat,setCat]=useState('');
   const[diff,setDiff]=useState('');
   const [questions,setQuestions]=useState([]);
+  const[show,setShow]=useState(true);
   useEffect(()=>{
 
     if(cat||diff){
@@ -18,7 +19,7 @@ function Category () {
 
   return(
     <>
-    <form className='form-container'>
+    <form className='form-container' style ={{display :show? 'block':'none'}}>
     
      <label htmlFor='category'>Select category: </label>
      <select id ='category' name = {cat} onChange={(e)=> setCat(e.target.value)}>
@@ -30,8 +31,9 @@ function Category () {
      {DifficultyData.map((dif,index)=><option key ={index} value ={dif} >{dif}</option>)}
      </select>
   
-     <button type= 'submit' onClick={()=>{
-           
+     <button type= 'submit' onClick={(e)=>{
+       setShow(!show)
+       e.preventDefault()
         }}>Go To Questions </button>
      </form>
     </>
