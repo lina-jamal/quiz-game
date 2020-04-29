@@ -6,6 +6,12 @@
   height: 40vmin;
   pointer-events: none;
 }
+.form-container{
+  margin: 9%;
+  display: flex;
+  justify-content: space-between;
+
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
