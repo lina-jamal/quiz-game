@@ -6,15 +6,14 @@ function Category () {
   const[diff,setDiff]=useState('');
   const [questions,setQuestions]=useState([]);
   const[show,setShow]=useState(true);
+  const [error, setError] = useState(null);
   useEffect(()=>{
 
     if(cat||diff){
     fetch(`https://opentdb.com/api.php?amount=10&category=${cat}&difficulty=${diff}`)
     .then(res => res.json()).then(({results})=>setQuestions(results))
-    .catch(error => console.error(error))}
-    else{
-      setQuestions([]);
-    }
+    .catch(error =>  setError(error))}
+  
   },[cat,diff])
 
   return(
