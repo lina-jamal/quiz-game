@@ -1,11 +1,11 @@
 import React from 'react';
+import Category from './components/Category'
 import './App.css';
-import QuizForm from './components/QuizForm';
 
 function App() {
   return (
     <div className="App">
-      <QuizForm />
+     <Category/>
     </div>
   );
 }
