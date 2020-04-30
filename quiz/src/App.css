@@ -22,7 +22,6 @@
   background-size: cover;
   /* height: 100vh; */
   color: white;
-
 }
 .form-container {
   position: absolute;
@@ -71,8 +70,7 @@
   background-color: transparent;
 }
 
-
-.answers{
+.answers {
   display: flex;
   flex-wrap: wrap;
   width: 50%;
@@ -80,38 +78,23 @@
 }
 
 .inputcontainer {
-  background:white;
+  background: white;
   padding: 3px;
   width: 200px;
-  /* border: 1px solid black; */
   border-radius: 22px;
   margin: 5px;
   cursor: pointer;
-  display:inline-block;
+  display: inline-block;
   color: black;
 }
 
-.inputcontainer:hover{
-background: yellow;
-color: red;
-border: none;
+.inputcontainer:hover {
+  background: yellow;
+  color: red;
+  border: none;
 }
-
-/* input[type="checkbox"] {
-  background-color: black;
-}
-
-input:checked + span {
-  text-decoration: line-through;
-} */
-
-/* .myinput:checked + label  {
-  background: #2196F3;
-} */
 
 .inputcontainer input {
   position: absolute;
   opacity: 0;
-} 
-
-
+}

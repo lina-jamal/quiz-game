@@ -16,15 +16,20 @@ function Quizform({ questions }) {
   ]);
   const [result, setResult] = useState(0);
   const [display, setDisplay] = useState(true);
-  // const [background, setBackground] = useState('white');
 
   useEffect(() => {
     for (let i = 0; i <= 10; i++) {
-      if (document.querySelector(`.questions${i}:checked`)) {
-        document.querySelector(
-          `.questions${i}:checked`
-        ).parentNode.style.background = "red";
-      }
+      const inputs = document.querySelectorAll(`.questions${i}`);
+      inputs.forEach((e) => {
+        if (e.checked) {
+          e.parentNode.style.background = 'rgb(114, 52, 95)';
+          e.parentNode.style.color = "white";
+
+        } else {
+          e.parentNode.style.background = "white";
+          e.parentNode.style.color = "black";
+        }
+      });
     }
   }, [answers]);
 
@@ -41,15 +46,11 @@ function Quizform({ questions }) {
       e.target.value,
       ...answers.slice(index + 1),
     ]);
-    // document.querySelector(`.inputcontainer:focus-within`).style.background='white';
-
-    // document.querySelector(`.questions${index}:checked`).parentNode.style.background='red';
-    // setBackground('red')
   };
   return (
     <>
       {display && (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
           {questions.map((e, index) => (
             <div key={index}>
               <p>{e.question}</p>
