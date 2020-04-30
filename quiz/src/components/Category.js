@@ -68,7 +68,7 @@ function Category() {
         </div>
       </form>
 }
-      {!show && <QuizForm questions={questions} />}
+      {!show& !error && <QuizForm questions={questions} />}
       
     </>
   );
