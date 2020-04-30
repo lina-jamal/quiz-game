@@ -50,8 +50,8 @@ background: yellow;
 color: red;
 border: none;
 }
-.inputcontainer:focus{
-  background: red;
+.inputcontainer:after{
+  background:white;
 }
 /* input[type="checkbox"] {
   background-color: black;

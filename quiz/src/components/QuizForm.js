@@ -124,31 +124,43 @@ function Quizform(){
   const [answer, setAnswer] = useState('');
   const [answers, setAnswers] = useState(['','','','','','','','','','']);
   const [result, setResult] = useState(0);
-  const [display, setDisplay] = useState('block');
+  const [display, setDisplay] = useState(true);
   const [background, setBackground] = useState('white');
 
-  // useEffect()
+  useEffect(()=>{
+    for(let i= 0; i<=10 ; i++){
+      if(document.querySelector(`.questions${i}:checked`)){
+    
+     document.querySelector(`.questions${i}:checked`).parentNode.style.background='red';
+    }
+    }
+  },[answers])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setDisplay('none');
+    setDisplay(false);
     console.log(answers.length);
     setResult(answers.filter(e => e === 'correct').length);
 
   }
 
   const handleChange = (e, index) => {
+    setBackground('white');
+
     console.log('answr', answers)
    setAnswer(e.target.value);
   setAnswers( [...answers.slice(0, index),
   e.target.value,
   ...answers.slice(index + 1)]);
-  // document.querySelector('input:checked').parentNode.style.background='red';
+  // document.querySelector(`.inputcontainer:focus-within`).style.background='white';
+
+  // document.querySelector(`.questions${index}:checked`).parentNode.style.background='red';
   // setBackground('red')
 
   }
   return(
     <>
+    {display &&
     <form onSubmit={handleSubmit} style={{display}}>
       {results.map((e, index)=> ( 
       <div key={index}>
@@ -162,12 +174,12 @@ function Quizform(){
       </select>  */}
        <div class="answers">
 
-      <label class="inputcontainer" > 
-        <input className="myinput"  type="radio" name={`answer${index}`} value="correct" onChange={(e)=> handleChange(e,index)}/>
+      <label class="inputcontainer" style={{background}} > 
+        <input className={`questions${index}`}  type="radio" name={`answer${index}`} value="correct" onChange={(e)=> handleChange(e,index)}/>
         {e.correct_answer}
       </label>
-      {e.incorrect_answers.map(incorrect=>  <label class="inputcontainer" > 
-        <input type="radio" name={`answer${index}`}  value="incorrect" onChange={(e)=> handleChange(e,index)}/>
+      {e.incorrect_answers.map(incorrect=>  <label class="inputcontainer" style={{background:'white'}}> 
+        <input className={`questions${index}`} type="radio" name={`answer${index}`}  value="incorrect" onChange={(e)=> handleChange(e,index)}/>
         {incorrect}
       </label>)}
       </div> 
@@ -176,7 +188,8 @@ function Quizform(){
     <input type="submit" value="Submit" />
 
     </form>
-    {display==='none' && <div> Your Result {result}</div>}
+}
+    {!display && <div> Your Result {result}</div>}
     </>
   )
 }
