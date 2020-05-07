@@ -1,24 +1,123 @@
-.App {
-  text-align: center;
+:root {
+  background-color: #009999;
+  font-size: 62.5%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 * {
   box-sizing: border-box;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "PT Sans";
   margin: 0;
   padding: 0;
-  font-family: "PT Sans";
-  font-weight: 400;
-  transition: 0.2s;
+  color: #333;
 }
-.body {
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 5.4rem;
+  color: #242f41;
+  margin-bottom: 5rem;
+}
+
+/* h1 > span {
+  font-size: 2.4rem;
+  font-weight: 500;
+} */
+
+h2 {
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+/*
+.justify-center {
+  justify-content: center;
+} */
+
+.form-container {
+  box-shadow: 1px 5px 14px 2px #0b0d0c;
+  width: 90%;
+  padding: 20px;
+  border-radius: 12px;
+  color: #242f41;
+}
+.quation-type {
+  margin: 9%;
+}
+.type-container {
+  display: flex;
+}
+.quation-type label {
+  width: 75%;
+  margin-top: 10px;
+  font-size: 1.8rem;
+}
+#category,
+#difficulty {
+  margin-bottom: 1rem;
+  width: 90%;
+  padding: 8px 15px;
+  font-size: 1.8rem;
+  border-radius: 8px;
+  border: none;
+}
+.btn {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+  width: 20rem;
+  text-align: center;
+  border: 0.1rem solid #56a5eb;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  margin-left: 5rem;
+  text-decoration: none;
+  color: #242f41;
+  background-color: white;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 #242f41;
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+  background-color: transparent;
+}
+
+/*  */
+/* .body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("./img/background.jpg") no-repeat center center;
-
-  /* background-repeat: no-repeat; */
   background-size: cover;
   height: 100vh;
 }
@@ -97,4 +196,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
