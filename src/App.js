@@ -1,13 +1,9 @@
-import React from 'react';
-import Category from './Category'
-import './App.css';
+import React from "react";
+import Category from "./component/Category";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-     <Category/>
-    </div>
-  );
+  return <Category />;
 }
 
 export default App;
